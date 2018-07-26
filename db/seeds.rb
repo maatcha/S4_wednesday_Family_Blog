@@ -9,7 +9,7 @@
 #gem faker pour générer des listes factices
  require 'faker'
 
-Création de 10 user
+#Création de 10 user
 
 10.times do
 	user = User.create(first_name: Faker::DragonBall.character, last_name: Faker::Name.last_name, email: Faker::Internet.email)
