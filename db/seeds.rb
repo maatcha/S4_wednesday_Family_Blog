@@ -9,22 +9,27 @@
 #gem faker pour générer des listes factices
  require 'faker'
 
-#Création de 10 user
+Création de 10 user
 
-# 10.times do
-# 	user = User.create(first_name: Faker::DragonBall.character, last_name: Faker::Name.last_name, email: Faker::Internet.email)
-# end
+10.times do
+	user = User.create(first_name: Faker::DragonBall.character, last_name: Faker::Name.last_name, email: Faker::Internet.email)
+ end
 
 
 #Création de 10 article
 
+User.all.each do |var|
 10.times do
-	article = Article.create(title: Faker::BackToTheFuture.date, content: "#{Faker::Community.quotes}")
+	article = Article.create(title: "Article written by #{var.first_name}", content: "#{Faker::Community.quotes}", author_id: var.id)
 end
+end
+#Création de 5 categorie
 
 5.times do
 	categorie = Categorie.create(name: Faker::Cat.name)
 end
+
+#Création de 15 coment
 
 15.times do
 	comment = Comment.create(content: Faker::BojackHorseman.tongue_twister)
